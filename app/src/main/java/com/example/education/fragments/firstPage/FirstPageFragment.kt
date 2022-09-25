@@ -38,8 +38,6 @@ class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
                     SecondPageFragment.getInstance(count, countColor),
                     SecondPageFragment.SECOND_PAGE_FRAGMENT_TAG,
                     detachCurrent = true
-
-
                 )
             }
         }
