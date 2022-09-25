@@ -34,7 +34,7 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
             when(countColor%3){
                 1 -> viewBinding.boxColor.setBackgroundResource(R.color.red)
                 2 -> viewBinding.boxColor.setBackgroundResource(R.color.blue)
-                0 -> viewBinding.boxColor.setBackgroundResource(R.color.green)
+                0 -> viewBinding.boxColor.setBackgroundResource(R.color.green_600)
             }
         }
 

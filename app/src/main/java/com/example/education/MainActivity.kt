@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.databinding.ActivityMainBinding
+import com.example.education.fragments.inputNumber.InputNumberFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,9 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-
+        addWithRemove(InputNumberFragment(),  InputNumberFragment.INPUT_NUMBER_FRAGMENT_TAG)
 
     }
 

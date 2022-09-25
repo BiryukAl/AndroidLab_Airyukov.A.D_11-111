@@ -4,4 +4,7 @@
     <string name="increase_count">increase count</string>
     <string name="swap_color">swap color</string>
     <string name="count_0">Count: 0</string>
+    <string name="phone_hint">Phone</string>
+    <string name="bio_hint">Bio</string>
+    <string name="to_rectangles_btn">to rectangles</string>
 </resources>
