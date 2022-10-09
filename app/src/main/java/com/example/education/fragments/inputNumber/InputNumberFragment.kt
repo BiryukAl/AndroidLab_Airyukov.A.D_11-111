@@ -1,10 +1,7 @@
 package com.example.education.fragments.inputNumber
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -20,8 +17,11 @@ class InputNumberFragment : Fragment(R.layout.fragment_input_number) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        inputNumberPhone()
+        initTextWatchers()
         inputBiography()
+
+
+        viewBinding.btnToRectangles.isEnabled = clicableBtnBio && clicableBtnNumb
 
         with(viewBinding) {
             btnToRectangles.setOnClickListener {
@@ -35,72 +35,109 @@ class InputNumberFragment : Fragment(R.layout.fragment_input_number) {
 
     }
 
+    private var clicableBtnNumb: Boolean = false
+    private var clicableBtnBio: Boolean = false
+
+
     private fun inputBiography() {
         with(viewBinding) {
-            biographyEt.addTextChangedListener(onTextChanged = { s: CharSequence?, start: Int, before: Int, count: Int ->
+            biographyEt.addTextChangedListener(onTextChanged = { s: CharSequence?, _: Int, _: Int, count: Int ->
                 s?.let {
-                    btnToRectangles.isEnabled = count > 0
+                    viewBinding.btnToRectangles.isEnabled = count > 0 && clicableBtnNumb
+                    clicableBtnBio = count > 0
+
                 }
             })
         }
     }
 
-    private fun inputNumberPhone() {
-        with(viewBinding) {
-            numberEt.addTextChangedListener(object : TextWatcher {
-                private var mSelfChange = false
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int,
-                ) {
-
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    if (s == null || mSelfChange) {
-                        return
+    private fun initTextWatchers() {
+        viewBinding.apply {
+            numberEt.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    if ((numberEt.text?.length ?: 0) < 5) {
+                        numberEt.setText("+7 (9")
                     }
+                }
+            }
 
-                    val preparedStr = s.replace(Regex("(\\D*)"), "")
-                    var resultStr = ""
-                    for (i in preparedStr.indices) {
-                        resultStr = when (i) {
-                            0 -> resultStr.plus("+7 (9")
-                            2 -> resultStr.plus(preparedStr[i])
-                            3 -> resultStr.plus(preparedStr[i])
-                            4 -> resultStr.plus(") ".plus(preparedStr[i]))
-                            5 -> resultStr.plus(preparedStr[i])
-                            6 -> resultStr.plus(preparedStr[i])
-                            7 -> resultStr.plus("-".plus(preparedStr[i]))
-                            8 -> resultStr.plus(preparedStr[i])
-                            9 -> resultStr.plus("-".plus(preparedStr[i]))
-                            10 -> resultStr.plus(preparedStr[i])
-                            else -> resultStr
+
+            var beFull: String = ""
+
+            numberEt.addTextChangedListener(
+
+                onTextChanged = { input: CharSequence?, count: Int, start: Int, before: Int ->
+                    input?.let { str ->
+                        if (start > before) {
+                            if (str.length < 18) {
+                                viewBinding.btnToRectangles.isEnabled = false
+                                clicableBtnNumb = false
+                                viewBinding.biographyEt.isEnabled = false
+                            }
+                            when {
+                                str.length < 5 -> {
+                                    numberEt.setText("+7 (9")
+                                    numberEt.setSelection(numberEt.text?.length ?: 5)
+                                }
+
+//                                str.length == 9 -> {
+//                                    numberEt.setText(numberEt.text.toString()?: "+7 ")
+//                                    numberEt.setSelection(7)
+//                                } -- Не убирается скобка
+                                else -> {
+                                    // extra logic
+                                    //+7 (999) 999-99-99
+                                    //123456789012345678
+                                }
+                            }
                         }
-                    }
+                        if (before > start) {
 
-                    viewBinding.biographyEt.isEnabled = resultStr.length == 18
 
-                    mSelfChange = true
-                    val oldSelectionPos = numberEt.selectionStart
-                    numberEt.setText(resultStr)
-                    if (numberEt.selectionStart != numberEt.length()) {
-                        numberEt.setSelection(if (oldSelectionPos > resultStr.length) resultStr.length else oldSelectionPos)
-                    } else {
-                        numberEt.setSelection(resultStr.length)
+                            val be: String = numberEt.text.toString()
+
+                            when (str.length) {
+                                7 -> {
+
+                                    numberEt.setText(be.plus(") "))
+                                    numberEt.setSelection(numberEt.text?.length ?: 9)
+                                }
+
+                                12 -> {
+                                    numberEt.setText(be.plus("-"))
+                                    numberEt.setSelection(numberEt.text?.length ?: 13)
+                                }
+
+                                15 -> {
+                                    numberEt.setText(be.plus("-"))
+                                    numberEt.setSelection(numberEt.text?.length ?: 16)
+                                }
+
+                                18 -> {
+                                    beFull = be
+
+                                }
+
+                            }
+
+                            if (str.length >= 18) {
+                                numberEt.setText(beFull)
+                                numberEt.setSelection(numberEt.text?.length ?: 18)
+                                clicableBtnNumb = true
+                                viewBinding.biographyEt.isEnabled = true
+                                viewBinding.btnToRectangles.isEnabled = clicableBtnBio && true
+                            } else {
+                                clicableBtnNumb = false
+                                viewBinding.biographyEt.isEnabled = false
+
+                            }
+
+                        }
+
                     }
-                    mSelfChange = false
                 }
-
-                override fun afterTextChanged(s: Editable?) {}
-            })
-
+            )
         }
-
-
     }
 
 

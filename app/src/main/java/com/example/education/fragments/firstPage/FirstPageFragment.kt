@@ -17,8 +17,8 @@ class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
 
     private val viewBinding: FragmentFirstPageBinding by viewBinding(FragmentFirstPageBinding::bind)
 
-    var count: Int = 0
-    var countColor: Int = 1
+    private var count: Int = 0
+    private var countColor: Int = 1
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
