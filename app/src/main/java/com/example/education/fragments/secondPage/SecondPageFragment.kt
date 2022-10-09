@@ -16,28 +16,25 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
             by viewBinding(FragmentSecondPageBinding::bind)
 
 
-    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val count : Int? = arguments?.getInt(ARG_COUNTER_VALUE)
-        val countColor : Int? = arguments?.getInt(ARG_COUNTER_COLOR)
+        val count: Int = arguments?.getInt(ARG_COUNTER_VALUE) ?: 0
+        val countColor: Int = arguments?.getInt(ARG_COUNTER_COLOR) ?: 1
 
 
-        if (count == 0){
+        if (count == 0) {
             viewBinding.boxCount.setTransitionVisibility(View.INVISIBLE)
-        }else{
-            viewBinding.boxCount.text = "Count: " + count.toString()
+        } else {
+
+            viewBinding.boxCount.text = resources.getString(R.string.count_0, count.toString())
         }
 
-        if (countColor != null) {
-            when(countColor%3){
-                1 -> viewBinding.boxColor.setBackgroundResource(R.color.red)
-                2 -> viewBinding.boxColor.setBackgroundResource(R.color.blue)
-                0 -> viewBinding.boxColor.setBackgroundResource(R.color.green_600)
-            }
+        when (countColor % 3) {
+            1 -> viewBinding.boxColor.setBackgroundResource(R.color.red)
+            2 -> viewBinding.boxColor.setBackgroundResource(R.color.blue)
+            0 -> viewBinding.boxColor.setBackgroundResource(R.color.green_600)
         }
-
 
 
     }
@@ -52,7 +49,7 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
         const val ARG_COUNTER_COLOR = "ARG_COUNTER_COLOR"
 
         @JvmStatic
-        fun getInstance(count: Int, countColor: Int): Fragment{
+        fun getInstance(count: Int, countColor: Int): Fragment {
             val args = Bundle().apply {
                 putInt(ARG_COUNTER_VALUE, count)
                 putInt(ARG_COUNTER_COLOR, countColor)
@@ -62,8 +59,6 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
             fragment.arguments = args
             return fragment
         }
-
-
 
     }
 
