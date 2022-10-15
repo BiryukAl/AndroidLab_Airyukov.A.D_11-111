@@ -1,6 +1,5 @@
-package com.example.education.fragments.secondPage
+package com.example.education.fragments.homework1.secondPage
 
-import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -26,7 +25,6 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
         if (count == 0) {
             viewBinding.boxCount.setTransitionVisibility(View.INVISIBLE)
         } else {
-
             viewBinding.boxCount.text = resources.getString(R.string.count_0, count.toString())
         }
 
@@ -35,8 +33,6 @@ class SecondPageFragment : Fragment(R.layout.fragment_second_page) {
             2 -> viewBinding.boxColor.setBackgroundResource(R.color.blue)
             0 -> viewBinding.boxColor.setBackgroundResource(R.color.green_600)
         }
-
-
     }
 
 

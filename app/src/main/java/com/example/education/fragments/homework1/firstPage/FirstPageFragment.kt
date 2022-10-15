@@ -1,15 +1,13 @@
-package com.example.education.fragments.firstPage
+package com.example.education.fragments.homework1.firstPage
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentFirstPageBinding
-import com.example.education.fragments.secondPage.SecondPageFragment
+import com.example.education.fragments.homework1.secondPage.SecondPageFragment
 
 
 class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
@@ -28,9 +26,9 @@ class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
             btnIncreaseCount.setOnClickListener {
                 count += 1
             }
+
             btnSwapColor.setOnClickListener {
                 countColor += 1
-
             }
 
             btnToSecondPage.setOnClickListener {
@@ -41,8 +39,6 @@ class FirstPageFragment : Fragment(R.layout.fragment_first_page) {
                 )
             }
         }
-
-
     }
 
 

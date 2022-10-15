@@ -7,4 +7,6 @@
     <string name="phone_hint">Phone</string>
     <string name="bio_hint">Bio</string>
     <string name="to_rectangles_btn">to rectangles</string>
+    <string name="to_third_page">to third page</string>
+    <string name="random_number">random number</string>
 </resources>
