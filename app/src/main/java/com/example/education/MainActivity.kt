@@ -1,14 +1,11 @@
 package com.example.education
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.databinding.ActivityMainBinding
-import com.example.education.fragments.homework2.inputNumber.InputNumberFragment
-import com.example.education.fragments.homework3.FirstHoWo3Fragment
-import com.example.education.fragments.homework3.SecondHoWo3Fragment
-import com.example.education.fragments.homework3.ThirdHoWo3Fragment
+import com.example.education.presentation.fragments.homework4.ListPlanetsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,9 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addFragment(FirstHoWo3Fragment(), FirstHoWo3Fragment.FIRST_HO_WO_3_FRAGMENT_TAG, true)
-        replaceFragment(SecondHoWo3Fragment(), SecondHoWo3Fragment.SECOND_HO_WO_3_FRAGMENT_TAG,)
-        replaceFragment(ThirdHoWo3Fragment(), ThirdHoWo3Fragment.THIRD_HO_WO_3_FRAGMENT_TAG,)
+        addFragment(ListPlanetsFragment(), ListPlanetsFragment.LIST_PLANETS_FRAGMENT_TAG)
+
 
     }
 
@@ -59,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
-
 
 
 }

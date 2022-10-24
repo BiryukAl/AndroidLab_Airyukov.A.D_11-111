@@ -1,4 +1,4 @@
-package com.example.education.fragments.homework2.fourRectangles
+package com.example.education.presentation.fragments.homework2.fourRectangles
 
 import android.os.Bundle
 import android.view.View

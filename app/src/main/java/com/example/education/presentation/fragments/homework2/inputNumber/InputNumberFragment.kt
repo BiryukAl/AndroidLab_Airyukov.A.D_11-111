@@ -1,4 +1,4 @@
-package com.example.education.fragments.homework2.inputNumber
+package com.example.education.presentation.fragments.homework2.inputNumber
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentInputNumberBinding
-import com.example.education.fragments.homework2.fourRectangles.FourRectanglesFragment
+import com.example.education.presentation.fragments.homework2.fourRectangles.FourRectanglesFragment
 
 class InputNumberFragment : Fragment(R.layout.fragment_input_number) {
 
