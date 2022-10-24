@@ -1,4 +1,4 @@
-package com.example.education.fragments.homework3
+package com.example.education.presentation.fragments.homework3
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
 import com.example.education.databinding.FragmentThirdHoWo3Binding
-import com.example.education.fragments.homework1.secondPage.SecondPageFragment
+import com.example.education.presentation.fragments.homework1.secondPage.SecondPageFragment
 
 class ThirdHoWo3Fragment : Fragment(R.layout.fragment_third_ho_wo_3) {
 

@@ -1,4 +1,4 @@
-package com.example.education.fragments.homework3
+package com.example.education.presentation.fragments.homework3
 
 import androidx.fragment.app.Fragment
 import com.example.education.R

@@ -1,4 +1,4 @@
-package com.example.education.fragments.homework1.secondPage
+package com.example.education.presentation.fragments.homework1.secondPage
 
 import android.os.Build
 import android.os.Bundle
