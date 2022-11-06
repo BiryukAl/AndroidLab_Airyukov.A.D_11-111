@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.databinding.ActivityMainBinding
 import com.example.education.presentation.fragments.homework4.ListPlanetsFragment
+import com.example.education.presentation.fragments.homework5.MultiItemTypeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +19,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addFragment(ListPlanetsFragment(), ListPlanetsFragment.LIST_PLANETS_FRAGMENT_TAG)
+
+        supportFragmentManager.beginTransaction()
+            .add(
+                fragmentsContainerId,
+                MultiItemTypeFragment.getInstance(),
+                MultiItemTypeFragment.MULTI_ITEM_TYPE_FRAGMENT_TAG,
+            )
+            .commit()
 
 
     }

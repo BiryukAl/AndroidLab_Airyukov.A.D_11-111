@@ -10,7 +10,7 @@ import com.example.education.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentListPlanetsBinding
 import com.example.education.presentation.adapters.PlanetAdapter
-import com.example.education.presentation.model.PlanetService
+import com.example.education.presentation.cache.PlanetService
 
 class ListPlanetsFragment : Fragment(R.layout.fragment_list_planets) {
     private val viewBinding: FragmentListPlanetsBinding by viewBinding(FragmentListPlanetsBinding::bind)

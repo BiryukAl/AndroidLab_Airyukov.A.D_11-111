@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
 import com.example.education.databinding.FragmentDescriptionPlanetBinding
-import com.example.education.presentation.model.PlanetService
+import com.example.education.presentation.cache.PlanetService
 
 class DescriptionPlanetFragment : Fragment(R.layout.fragment_description_planet) {
     private val viewBinding: FragmentDescriptionPlanetBinding by viewBinding(
@@ -35,7 +35,6 @@ class DescriptionPlanetFragment : Fragment(R.layout.fragment_description_planet)
             val args = Bundle().apply {
                 putInt(ITEM_POSITION_TAG, itemPosition)
             }
-            println("getInstance $itemPosition")
 
             val fragment = DescriptionPlanetFragment()
             fragment.arguments = args
