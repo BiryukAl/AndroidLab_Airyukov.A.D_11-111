@@ -1,4 +1,6 @@
-package com.example.education.presentation.model
+package com.example.education.presentation.cache
+
+import com.example.education.presentation.model.Planet
 
 object PlanetService {
     val listOfPlanets: MutableList<Planet> = mutableListOf(
