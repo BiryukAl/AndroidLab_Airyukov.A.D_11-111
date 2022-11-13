@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp">
-
+    tools:context=".presentation.fragments.homework6.BFragment">
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/number_et"
+        android:id="@+id/et_b"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="32dp"
-        android:hint="@string/phone_hint"
-        android:inputType="phone"
+        android:layout_marginTop="64dp"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/biography_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp"
-        android:enabled="false"
-        android:hint="@string/bio_hint"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_et" />
-
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_to_rectangles"
-
+        android:id="@+id/btn_to_b2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="16dp"
-
-        android:enabled="false"
-
-        android:text="@string/to_rectangles_btn"
-
-
+        android:text="to b2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/biography_et" />
-
+        app:layout_constraintTop_toBottomOf="@id/et_b" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
