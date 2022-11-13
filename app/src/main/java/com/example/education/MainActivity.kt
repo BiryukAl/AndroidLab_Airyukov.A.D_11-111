@@ -1,8 +1,13 @@
 package com.example.education
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.databinding.ActivityMainBinding
 import com.example.education.presentation.fragments.homework4.ListPlanetsFragment
@@ -19,14 +24,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val navController =
+            (supportFragmentManager.findFragmentById(fragmentsContainerId) as NavHostFragment).navController
 
-        supportFragmentManager.beginTransaction()
-            .add(
-                fragmentsContainerId,
-                MultiItemTypeFragment.getInstance(),
-                MultiItemTypeFragment.MULTI_ITEM_TYPE_FRAGMENT_TAG,
-            )
-            .commit()
+        viewBinding.mainBottomNav.setupWithNavController(navController)
+
+
+//        supportFragmentManager.beginTransaction()
+//            .add(
+//                fragmentsContainerId,
+//                MultiItemTypeFragment.getInstance(),
+//                MultiItemTypeFragment.MULTI_ITEM_TYPE_FRAGMENT_TAG,
+//            )
+//            .commit()
 
 
     }
@@ -62,6 +72,10 @@ class MainActivity : AppCompatActivity() {
             .replace(fragmentsContainerId, fragment, tag)
             .addToBackStack(null)
             .commit()
+    }
+
+    fun changeBottomNavigationVisibility(isVisible: Boolean) {
+        viewBinding.mainBottomNav.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
 
