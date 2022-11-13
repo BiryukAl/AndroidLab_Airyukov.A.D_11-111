@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.education.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentC2Binding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,9 +15,6 @@ class C2Fragment: Fragment(R.layout.fragment_c_2) {
     private val viewBinding: FragmentC2Binding
             by viewBinding(FragmentC2Binding::bind)
 
-//    private val viewBindingActivity: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
-private val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.main_bottom_nav)
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,7 +22,7 @@ private val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.m
 
         viewBinding.btnToC3.setOnClickListener{
 
-            navBar.visibility = View.VISIBLE
+            (requireActivity() as? MainActivity)?.changeBottomNavigationVisibility(true)
 
             findNavController().navigate(R.id.action_c2Fragment_to_c3Fragment)
 
