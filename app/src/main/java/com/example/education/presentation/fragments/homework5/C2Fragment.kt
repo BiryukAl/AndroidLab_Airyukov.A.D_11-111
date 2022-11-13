@@ -1,4 +1,4 @@
-package com.example.education.presentation.fragments.homework6
+package com.example.education.presentation.fragments.homework5
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentC2Binding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class C2Fragment: Fragment(R.layout.fragment_c_2) {
 

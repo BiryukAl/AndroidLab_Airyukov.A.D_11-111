@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.databinding.ActivityMainBinding
-import com.example.education.presentation.fragments.homework4.ListPlanetsFragment
-import com.example.education.presentation.fragments.homework5.MultiItemTypeFragment
 
 class MainActivity : AppCompatActivity() {
 

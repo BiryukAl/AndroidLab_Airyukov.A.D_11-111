@@ -1,4 +1,4 @@
-package com.example.education.presentation.fragments.homework6
+package com.example.education.presentation.fragments.homework5
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.MainActivity
 import com.example.education.R
-import com.example.education.databinding.ActivityMainBinding
 import com.example.education.databinding.FragmentCBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class CFragment : Fragment(R.layout.fragment_c) {

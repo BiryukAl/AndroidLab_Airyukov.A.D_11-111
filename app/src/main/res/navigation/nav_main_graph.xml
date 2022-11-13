@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/AFragment"
-        android:name="com.example.education.presentation.fragments.homework6.AFragment"
+        android:name="com.example.education.presentation.fragments.homework5.AFragment"
         android:label="fragment_a"
         tools:layout="@layout/fragment_a" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/a2Fragment"
-        android:name="com.example.education.presentation.fragments.homework6.A2Fragment"
+        android:name="com.example.education.presentation.fragments.homework5.A2Fragment"
         android:label="fragment_a_2"
         tools:layout="@layout/fragment_a_2" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/a3Fragment"
-        android:name="com.example.education.presentation.fragments.homework6.A3Fragment"
+        android:name="com.example.education.presentation.fragments.homework5.A3Fragment"
         android:label="fragment_a_3"
         tools:layout="@layout/fragment_a_3" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/BFragment"
-        android:name="com.example.education.presentation.fragments.homework6.BFragment"
+        android:name="com.example.education.presentation.fragments.homework5.BFragment"
         android:label="fragment_b"
         tools:layout="@layout/fragment_b" >
         <action
@@ -43,12 +43,12 @@
     </fragment>
     <fragment
         android:id="@+id/b2Fragment"
-        android:name="com.example.education.presentation.fragments.homework6.B2Fragment"
+        android:name="com.example.education.presentation.fragments.homework5.B2Fragment"
         android:label="fragment_b_2"
         tools:layout="@layout/fragment_b_2" />
     <fragment
         android:id="@+id/CFragment"
-        android:name="com.example.education.presentation.fragments.homework6.CFragment"
+        android:name="com.example.education.presentation.fragments.homework5.CFragment"
         android:label="fragment_c"
         tools:layout="@layout/fragment_c" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/c2Fragment"
-        android:name="com.example.education.presentation.fragments.homework6.C2Fragment"
+        android:name="com.example.education.presentation.fragments.homework5.C2Fragment"
         android:label="fragment_c_2"
         tools:layout="@layout/fragment_c_2" >
         <action
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/c3Fragment"
-        android:name="com.example.education.presentation.fragments.homework6.C3Fragment"
+        android:name="com.example.education.presentation.fragments.homework5.C3Fragment"
         android:label="fragment_c_3"
         tools:layout="@layout/fragment_c_3" >
         <action

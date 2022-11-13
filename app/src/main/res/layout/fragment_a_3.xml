@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.fragments.homework6.A3Fragment">
+    tools:context=".presentation.fragments.homework5.A3Fragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_to_a1"

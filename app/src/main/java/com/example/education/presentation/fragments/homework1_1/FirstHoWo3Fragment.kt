@@ -1,4 +1,4 @@
-package com.example.education.presentation.fragments.homework3
+package com.example.education.presentation.fragments.homework1_1
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,11 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.MainActivity
 import com.example.education.R
-import com.example.education.databinding.FragmentFirstHoWo3Binding
-import com.example.education.databinding.FragmentFirstPageBinding
-import com.example.education.presentation.fragments.homework1.firstPage.FirstPageFragment
-import com.example.education.presentation.fragments.homework1.secondPage.SecondPageFragment
+import com.example.education.databinding.FragmentFirstHoWo11Binding
 
-class FirstHoWo3Fragment : Fragment(R.layout.fragment_first_ho_wo_3) {
+class FirstHoWo3Fragment : Fragment(R.layout.fragment_first_ho_wo_1_1) {
 
-    private val viewBinding: FragmentFirstHoWo3Binding by viewBinding(FragmentFirstHoWo3Binding::bind)
+    private val viewBinding: FragmentFirstHoWo11Binding by viewBinding(FragmentFirstHoWo11Binding::bind)
 
     private var count: Int = 0
 

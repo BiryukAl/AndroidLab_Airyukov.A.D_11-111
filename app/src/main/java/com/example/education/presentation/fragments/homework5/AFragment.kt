@@ -1,10 +1,9 @@
-package com.example.education.presentation.fragments.homework6
+package com.example.education.presentation.fragments.homework5
 
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import by.kirich1409.viewbindingdelegate.viewBinding
