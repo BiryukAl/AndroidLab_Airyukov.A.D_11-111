@@ -10,7 +10,7 @@ import com.example.education.R
 import com.example.education.databinding.FragmentInputNumberBinding
 import com.example.education.presentation.fragments.homework2.fourRectangles.FourRectanglesFragment
 
-class InputNumberFragment : Fragment(R.layout.fragment_input_number) {
+class   InputNumberFragment : Fragment(R.layout.fragment_input_number) {
 
     private val viewBinding: FragmentInputNumberBinding by viewBinding(FragmentInputNumberBinding::bind)
 
