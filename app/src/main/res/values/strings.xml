@@ -9,4 +9,15 @@
     <string name="to_rectangles_btn">to rectangles</string>
     <string name="to_third_page">to third page</string>
     <string name="random_number">random number</string>
+    <string name="handler">Handler</string>
+    <string name="big_text">BigText</string>
+    <string name="message">Message</string>
+    <string name="timeout">TimeOut</string>
+    <string name="show_notification">Show Notification</string>
+    <string name="revoke_notification">Revoke Notification</string>
+    <string name="show_time_last_restart">Show time last restart</string>
+
+
+<!--    Name Chanel ID-->
+    <string name="default_chanel">First chanel</string>
 </resources>
