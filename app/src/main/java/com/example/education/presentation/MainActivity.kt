@@ -1,13 +1,12 @@
-package com.example.education
+package com.example.education.presentation
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.education.R
 import com.example.education.databinding.ActivityMainBinding
 import com.example.education.presentation.fragments.homework6.CreateNotifyFragment
-import com.example.education.presentation.utils.NotificationsHandler
 
 class MainActivity : AppCompatActivity() {
 

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.education.MainActivity
+import com.example.education.presentation.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentInputNumberBinding
 import com.example.education.presentation.fragments.homework2.fourRectangles.FourRectanglesFragment

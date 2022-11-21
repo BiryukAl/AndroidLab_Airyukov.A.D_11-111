@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.education.MainActivity
+import com.example.education.presentation.MainActivity
 import com.example.education.R
 import com.example.education.databinding.FragmentListPlanetsBinding
 import com.example.education.presentation.adapters.PlanetAdapter
-import com.example.education.presentation.cache.PlanetService
+import com.example.education.cache.PlanetService
 
 class ListPlanetsFragment : Fragment(R.layout.fragment_list_planets) {
     private val viewBinding: FragmentListPlanetsBinding by viewBinding(FragmentListPlanetsBinding::bind)

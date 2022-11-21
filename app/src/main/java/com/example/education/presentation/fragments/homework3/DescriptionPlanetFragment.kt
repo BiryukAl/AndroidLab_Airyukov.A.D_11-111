@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
 import com.example.education.databinding.FragmentDescriptionPlanetBinding
-import com.example.education.presentation.cache.PlanetService
+import com.example.education.cache.PlanetService
 
 class DescriptionPlanetFragment : Fragment(R.layout.fragment_description_planet) {
     private val viewBinding: FragmentDescriptionPlanetBinding by viewBinding(
