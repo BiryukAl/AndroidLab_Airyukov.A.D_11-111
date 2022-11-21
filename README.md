@@ -5,13 +5,13 @@
 
 
 ### Regulations
-HW1 - Fragment                                = 4 (+2)
-HW2 - LP + TextWatcher                        =	4 (+2)
-HW3 - Recycler View	                          = 3
-HW4 - Multiple View Types	                    = 6
-HW5 - Navigation Component	                  = 5 (+2)
-HW6 - Notifications + AM + BR	                = 5 (+3)
-HW7 - Permissions + Activity/Fragment result	= ? (+?)
+* HW1 - Fragment                                = 4 (+2)
+* HW2 - LP + TextWatcher                        =	4 (+2)
+* HW3 - Recycler View	                          = 3
+* HW4 - Multiple View Types	                    = 6
+* HW5 - Navigation Component	                  = 5 (+2)
+* HW6 - Notifications + AM + BR	                = 5 (+3)
+* HW7 - Permissions + Activity/Fragment result	= ? (+?)
 
 ### Self-check - Home Works
 
