@@ -7,6 +7,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
 import com.example.education.databinding.ActivityMainBinding
 import com.example.education.presentation.fragments.homework6.CreateNotifyFragment
+import com.example.education.presentation.fragments.homework8.CreateForegroundServiceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,16 +23,13 @@ class MainActivity : AppCompatActivity() {
 //        val navController = (supportFragmentManager.findFragmentById(fragmentsContainerId) as NavHostFragment).navController
 //        viewBinding.mainBottomNav.setupWithNavController(navController)
 
-
         supportFragmentManager.beginTransaction()
             .add(
                 fragmentsContainerId,
-                CreateNotifyFragment.getInstance(),
-                CreateNotifyFragment.CREATE_NOTIFY_FRAGMENT_TAG,
+                CreateForegroundServiceFragment.getInstance(),
+                CreateForegroundServiceFragment.CREATE_FOREGROUND_SERVICE_FRAGMENT_TAG
             )
             .commit()
-
-
     }
 
     fun addFragment(fragment: Fragment, tag: String, detachCurrent: Boolean = false) {
