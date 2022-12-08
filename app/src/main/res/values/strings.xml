@@ -20,4 +20,8 @@
 
 <!--    Name Chanel ID-->
     <string name="default_chanel">First chanel</string>
+    <string name="start_fs">start FS</string>
+    <string name="set_img">Set Notify IMG</string>
+    <string name="set_iv_img">Set IV IMG</string>
+    <string name="stop_fs">Stop FS</string>
 </resources>
