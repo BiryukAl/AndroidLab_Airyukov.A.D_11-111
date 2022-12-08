@@ -26,13 +26,13 @@ class NotificationsHandler(private val context: Context) {
             .setContentIntent(intent)
 
 
-    private val notificationManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private val notificationManager: NotificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
 
     fun getNotificationManager(): NotificationManager {
         return notificationManager
     }
-
 
 
     init {
@@ -47,11 +47,12 @@ class NotificationsHandler(private val context: Context) {
             }
         }
     }
+
     fun createNotifyService(
         headerText: String?,
         messageText: String?,
-        bitmap: Bitmap?
-    ): Notification{
+        bitmap: Bitmap?,
+    ): Notification {
 
         val nBilder = NotificationCompat.Builder(context, DEFAULT_CHANEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_settings_24)
@@ -63,11 +64,32 @@ class NotificationsHandler(private val context: Context) {
         return nBilder.build()
     }
 
+    fun notifySimpleNotification(
+        id: Int,
+        headerText: String?,
+        messageText: String?,
+    ) {
+        notificationManager.notify(id,
+            createSimpleNotification(headerText, messageText))
+    }
+
+    fun createSimpleNotification(
+        headerText: String?,
+        messageText: String?,
+    ): Notification {
+        return NotificationCompat.Builder(context, DEFAULT_CHANEL_ID)
+            .setSmallIcon(R.drawable.ic_baseline_settings_24)
+            .setContentTitle(headerText)
+            .setContentText(messageText)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .build()
+    }
+
+
     fun createNotification(headerText: String?, messageText: String?, intent: PendingIntent) {
         notificationManager.notify(TEST_NOTIFICATION_ID,
             buildNotification(headerText, messageText, intent).build())
     }
-
 
 
     fun createNotification(
@@ -89,7 +111,7 @@ class NotificationsHandler(private val context: Context) {
     companion object {
         private const val DEFAULT_CHANEL_ID = "SAMPLE_APP_DEFAULT_CHANNEL"
         private const val TEST_NOTIFICATION_ID = 200
-        private const val  ID_NOYIFY_SERVISE = 321
+        private const val ID_NOYIFY_SERVISE = 321
 
     }
 
