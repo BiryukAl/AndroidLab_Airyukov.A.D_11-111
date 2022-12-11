@@ -24,4 +24,6 @@
     <string name="set_img">Set Notify IMG</string>
     <string name="set_iv_img">Set IV IMG</string>
     <string name="stop_fs">Stop FS</string>
+    <string name="preload_img">preload img</string>
+    <string name="img">IMG</string>
 </resources>
