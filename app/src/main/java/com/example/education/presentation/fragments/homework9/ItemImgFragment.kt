@@ -9,10 +9,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.education.R
 import com.example.education.databinding.FragmentItemImgBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class ItemImgFragment : Fragment(R.layout.fragment_item_img) {
     private val viewBinding: FragmentItemImgBinding
@@ -28,7 +25,7 @@ class ItemImgFragment : Fragment(R.layout.fragment_item_img) {
 
         lifecycleScope.async(Dispatchers.IO) {
             downloadImg(url)
-            launch(Dispatchers.Main) {
+            withContext(Dispatchers.Main) {
                 Glide.with(this@ItemImgFragment)
                     .load(url)
                     .into(viewBinding.imageItem)
@@ -44,7 +41,6 @@ class ItemImgFragment : Fragment(R.layout.fragment_item_img) {
         Glide.with(this)
             .load(url)
             .preload()
-        Log.d("MyGlideTest", "Coroutine")
     }
 
     companion object {
