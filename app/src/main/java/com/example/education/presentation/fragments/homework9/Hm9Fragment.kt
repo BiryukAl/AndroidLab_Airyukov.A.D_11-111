@@ -1,7 +1,6 @@
 package com.example.education.presentation.fragments.homework9
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +13,8 @@ import com.example.education.databinding.FragmentHm9Binding
 import com.example.education.presentation.adapters.ImgPagerAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
 
 class Hm9Fragment : Fragment(R.layout.fragment_hm9) {
     private val viewBinding: FragmentHm9Binding
@@ -46,24 +46,28 @@ class Hm9Fragment : Fragment(R.layout.fragment_hm9) {
                 val point1 = (sizeList + 1) / 3
                 val point2 = ((sizeList + 1) / 3) * 2
 
-                lifecycleScope.async(Dispatchers.IO) {
-                    preloadImg(listUrl.subList(0, point1))
-                    preloadImg(listUrl.subList(point1, point2))
-                    preloadImg(listUrl.subList(point2, sizeList))
-                }
+                lifecycleScope.launch() {
+                    val job1 = async(Dispatchers.IO) {
+                        preloadImg(listUrl.subList(0, point1))
+                    }
+                    val job2 = async(Dispatchers.IO) {
+                        preloadImg(listUrl.subList(point1, point2))
+                    }
+                    val job3 = async(Dispatchers.IO) {
+                        preloadImg(listUrl.subList(point2, sizeList))
+                    }
 
+                    listOf(job1, job2, job3).awaitAll()
+
+                }
             }
         }
     }
 
-    suspend fun preloadImg(listUrl: List<String>) {
-        withContext(Dispatchers.IO) {
-            listUrl.forEach {
-                glide?.load(it)
-                    ?.preload()
-                Log.d("MyGlideTest", "BTN download $it")
-
-            }
+    private suspend fun preloadImg(listUrl: List<String>) {
+        listUrl.forEach {
+            glide?.load(it)
+                ?.preload()
         }
     }
 
