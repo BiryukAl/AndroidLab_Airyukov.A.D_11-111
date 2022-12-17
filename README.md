@@ -11,7 +11,10 @@
 * HW4 - Multiple View Types	                    = 6
 * HW5 - Navigation Component	                  = 5 (+2)
 * HW6 - Notifications + AM + BR	                = 5 (+3)
-* HW7 - Permissions + Activity/Fragment result	= ? (+?)
+* HW7 - Permissions + Activity/Fragment result	= 4 (+2)
+* HW8 - Foreground Services                     =	4 (+2)
+* HW9 - Coroutines (Base)	                      = 4
+* HW10 - Room	                                  = ?
 
 ### Self-check - Home Works
 
@@ -23,5 +26,8 @@
 * Home Work 5   - Complite, points 50%
 * Home Work 6   - Complite, points 50%
 * Home Work 7   - In progress...
+* Home Work 8   - Complite, points 50%
+* Home Work 9   - Complite, points 100%
+* Home Work 10   - Complite, points 100%
 
 
