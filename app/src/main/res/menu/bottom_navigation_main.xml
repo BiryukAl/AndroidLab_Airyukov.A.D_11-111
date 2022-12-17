@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/AFragment"
-        android:icon="@drawable/ic_first_page_black"
-        android:title="A" />
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/ic_baseline_account_black"
+        android:title="Account" />
     <item
-        android:id="@+id/BFragment"
-        android:icon="@drawable/ic_second_page_black"
-        android:title="B" />
-    <item
-        android:id="@+id/CFragment"
-        android:icon="@drawable/ic_third_page_black"
-        android:title="C" />
-
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Setting" />
 </menu>

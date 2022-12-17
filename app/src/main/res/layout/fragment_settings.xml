@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".presentation.fragments.homework10.SettingsFragment">
+
+
+    <ImageView
+        android:id="@+id/imageViewSetting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings_blue" />
+
+    <TextView
+        android:id="@+id/tv_setting1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/setting_1"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_setting1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewSetting" />
+
+    <CheckBox
+        android:id="@+id/checkbox_setting1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_setting1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_setting1"
+        app:layout_constraintTop_toTopOf="@+id/tv_setting1" />
+
+    <TextView
+        android:id="@+id/tv_setting2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/setting_2"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_setting2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting1" />
+
+    <CheckBox
+        android:id="@+id/checkbox_setting2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_setting2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_setting2"
+        app:layout_constraintTop_toTopOf="@+id/tv_setting2" />
+
+
+    <TextView
+        android:id="@+id/tv_setting3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/setting_3"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_setting3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting2" />
+
+    <CheckBox
+        android:id="@+id/checkbox_setting3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_setting3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_setting3"
+        app:layout_constraintTop_toTopOf="@+id/tv_setting3" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save_settings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/save_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
