@@ -24,4 +24,16 @@
     <string name="set_img">Set Notify IMG</string>
     <string name="set_iv_img">Set IV IMG</string>
     <string name="stop_fs">Stop FS</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="registration">Registration</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="log_in">Log In</string>
+    <string name="edit">Edit</string>
+    <string name="log_out">Log Out</string>
+    <string name="setting_1">Setting 1</string>
+    <string name="setting_2">Setting 2</string>
+    <string name="setting_3">Setting 3</string>
+    <string name="save_settings">Save Settings</string>
 </resources>

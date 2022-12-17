@@ -1,4 +1,4 @@
-package com.example.education.cache
+package com.example.education.data
 
 import com.example.education.presentation.model.Planet
 
