@@ -3,6 +3,7 @@ package com.example.education.presentation.fragments.homework10
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -46,6 +47,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
 
             withContext(Dispatchers.Main) {
                 viewBinding.loginEt.setText(user!!.login)
+                viewBinding.btnEdit.isEnabled = true
             }
         }
 
@@ -54,12 +56,16 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
                 val newLogin = loginEt.text.toString()
 
                 if (newLogin == user?.login) {
+                    Toast.makeText(context, "Change your login", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 lifecycleScope.launch(Dispatchers.IO) {
                     DatabaseHandler.roomDatabase?.getUserDao()
                         ?.updateUserLogin(UserUpdateLogin(newLogin, user!!.id))
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(context, "Login changed", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 

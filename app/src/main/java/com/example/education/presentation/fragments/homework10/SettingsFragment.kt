@@ -3,6 +3,7 @@ package com.example.education.presentation.fragments.homework10
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -61,6 +62,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 )
                 lifecycleScope.launch(Dispatchers.IO) {
                     DatabaseHandler.roomDatabase?.getSettingsDao()?.updateUserSettings(newSettings)
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(context, "Settings saved", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
