@@ -36,4 +36,6 @@
     <string name="setting_2">Setting 2</string>
     <string name="setting_3">Setting 3</string>
     <string name="save_settings">Save Settings</string>
+    <string name="preload_img">preload img</string>
+    <string name="img">IMG</string>
 </resources>
