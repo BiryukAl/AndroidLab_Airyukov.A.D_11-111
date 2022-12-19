@@ -1,10 +1,11 @@
 # AndroidLab_Biryukov.A.D_11-111
 ## Group 2 
 
-## Бирюков Александр Дмитриевич (kpfu/itis/11-111) = 12 point
+## Бирюков Александр Дмитриевич (kpfu/itis/11-111) = 18 point
 
 
 ### Regulations
+
 * HW1 - Fragment                                = 4 (+2)
 * HW2 - LP + TextWatcher                        =	4 (+2)
 * HW3 - Recycler View	                          = 3
@@ -29,5 +30,3 @@
 * Home Work 8   - Complite, points 50%
 * Home Work 9   - Complite, points 100%
 * Home Work 10   - Complite, points 100%
-
-
