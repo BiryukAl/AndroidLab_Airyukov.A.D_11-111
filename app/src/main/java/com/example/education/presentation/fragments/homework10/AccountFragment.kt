@@ -1,6 +1,7 @@
 package com.example.education.presentation.fragments.homework10
 
 import android.content.Context
+import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -61,8 +62,18 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
                 }
 
                 lifecycleScope.launch(Dispatchers.IO) {
-                    DatabaseHandler.roomDatabase?.getUserDao()
-                        ?.updateUserLogin(UserUpdateLogin(newLogin, user!!.id))
+                    try {
+                        DatabaseHandler.roomDatabase?.getUserDao()
+                            ?.updateUserLogin(UserUpdateLogin(newLogin, user!!.id))
+                    }catch (ex: SQLiteConstraintException){
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(context,
+                                "Login is already in USE!",
+                                Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                        return@launch
+                    }
                     withContext(Dispatchers.Main) {
                         Toast.makeText(context, "Login changed", Toast.LENGTH_SHORT).show()
                     }
