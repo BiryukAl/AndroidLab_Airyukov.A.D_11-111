@@ -10,7 +10,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun addUser(user: User)
 
-    @Update(entity = User::class)
+    @Update(entity = User::class, onConflict = OnConflictStrategy.ABORT)
     suspend fun updateUserLogin(newUser: UserUpdateLogin)
 
     @Query("SElECT * FROM users WHERE id = :id")
