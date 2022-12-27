@@ -1,7 +1,7 @@
 # AndroidLab_Biryukov.A.D_11-111
 ## Group 2 
 
-## Бирюков Александр Дмитриевич (kpfu/itis/11-111) = 18 point
+## Бирюков Александр Дмитриевич (kpfu/itis/11-111) = 38,5 point
 
 
 ### Regulations
@@ -15,10 +15,17 @@
 * HW7 - Permissions + Activity/Fragment result	= 4 (+2)
 * HW8 - Foreground Services                     =	4 (+2)
 * HW9 - Coroutines (Base)	                      = 4
-* HW10 - Room	                                  = ?
+* HW10- Room	                                  = 8
+* Add - Staggered Layout Manager                = 6
+
+All: 79
 
 ### Self-check - Home Works
 
+#### Additional:
+Staggered Layout Manager - In progress..)
+
+#### Main:
 * Home Work 1   - Complite, points 50%
 * Home Work 1_1 - Complite
 * Home Work 2   - Complite, points 100% + extra point
@@ -29,4 +36,4 @@
 * Home Work 7   - In progress...
 * Home Work 8   - Complite, points 50%
 * Home Work 9   - Complite, points 100%
-* Home Work 10   - Complite, points 100%
+* Home Work 10  - Complite, points 80%
