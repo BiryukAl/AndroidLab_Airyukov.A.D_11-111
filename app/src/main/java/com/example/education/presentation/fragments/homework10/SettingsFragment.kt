@@ -31,7 +31,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         idUser = pref?.getInt(SignInUserForApp.USER_ID_TAG, -1) ?: -1
 
         //Стрелки такой нет Но и ситуации такой не может
-        //Непротестировано !!!
+        //Не протестировано !!!
         if (idUser == -1) {
             findNavController().navigate(R.id.action_accountFragment_to_loginFragment)
         }
@@ -40,15 +40,19 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val settings = DatabaseHandler.roomDatabase?.getSettingsDao()?.findById(idUser)
+        lifecycleScope.launch {
+            val settings = withContext(Dispatchers.IO) {
+                DatabaseHandler.roomDatabase?.getSettingsDao()?.findById(idUser)
+            }
 
-            withContext(Dispatchers.Main) {
+            if (settings != null) {
                 with(viewBinding) {
-                    checkboxSetting1.isChecked = settings?.settings1!!
-                    checkboxSetting2.isChecked = settings?.settings2!!
-                    checkboxSetting3.isChecked = settings?.settings3!!
+                    checkboxSetting1.isChecked = settings.settings1
+                    checkboxSetting2.isChecked = settings.settings2
+                    checkboxSetting3.isChecked = settings.settings3
                 }
+            }else{
+                Toast.makeText(context, "Error loading settings!", Toast.LENGTH_SHORT).show()
             }
         }
 
