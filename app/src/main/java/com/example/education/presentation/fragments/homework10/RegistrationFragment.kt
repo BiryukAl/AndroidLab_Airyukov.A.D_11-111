@@ -50,36 +50,38 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
                     return@setOnClickListener
                 }
 
-                lifecycleScope.launch(Dispatchers.IO) {
-                    val isAddUser = try {
-                        DatabaseHandler.roomDatabase?.getUserDao()?.addUser(User(login, password))
-                        Log.d("TEST TAG", "Add new User")
-                        withContext(Dispatchers.IO) {
-                            val user = DatabaseHandler.roomDatabase?.getUserDao()
-                                ?.findByLoginAndPassword(login, password)
-                            DatabaseHandler.roomDatabase?.getSettingsDao()
-                                ?.addSettingsUser(Settings(user!!.id,
-                                    settings1 = false,
-                                    settings2 = false,
-                                    settings3 = false))
+                lifecycleScope.launch {
+                    val isAddUser = withContext(Dispatchers.IO) {
+                        try {
+                            DatabaseHandler.roomDatabase?.getUserDao()
+                                ?.addUser(User(login, password))
+                            Log.d("TEST TAG", "Add new User")
+                            withContext(Dispatchers.IO) {
+                                val user = DatabaseHandler.roomDatabase?.getUserDao()
+                                    ?.findByLoginAndPassword(login, password)
+                                DatabaseHandler.roomDatabase?.getSettingsDao()
+                                    ?.addSettingsUser(Settings(user!!.id,
+                                        settings1 = false,
+                                        settings2 = false,
+                                        settings3 = false))
+                            }
+                            true
+                        } catch (ex: SQLiteConstraintException) {
+                            false
                         }
-                        true
-                    } catch (ex: SQLiteConstraintException) {
-                        false
                     }
 
-                    withContext(Dispatchers.Main) {
-                        if (!isAddUser) {
-                            Toast.makeText(context,
-                                "Login is already in USE!",
-                                Toast.LENGTH_SHORT)
-                                .show()
-                            return@withContext
-                        }
-
-                        findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
-                        return@withContext
+                    if (!isAddUser) {
+                        Toast.makeText(context,
+                            "Login is already in USE!",
+                            Toast.LENGTH_SHORT)
+                            .show()
+                        return@launch
                     }
+
+                    findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+                    return@launch
+
                 }
             }
         }

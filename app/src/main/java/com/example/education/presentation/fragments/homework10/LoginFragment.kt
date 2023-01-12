@@ -47,27 +47,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     return@setOnClickListener
                 }
 
-                lifecycleScope.launch(Dispatchers.IO) {
-                    val user = DatabaseHandler.roomDatabase?.getUserDao()
-                        ?.findByLoginAndPassword(login, password)
-                    withContext(Dispatchers.Main) {
-                        if (user == null) {
-                            Toast.makeText(context,
-                                "Incorrect login and/or password",
-                                Toast.LENGTH_SHORT)
-                                .show()
-                            return@withContext
-                        }
-                        val idUser = user.id
-                        val pref =
-                            activity?.getPreferences(Context.MODE_PRIVATE) ?: return@withContext
-                        with(pref.edit()) {
-                            putInt(USER_ID_TAG, idUser)
-                            commit()
-                        }
-                        (requireActivity() as? MainActivity)?.changeBottomNavigationVisibility(true)
-                        findNavController().navigate(R.id.action_loginFragment_to_accountFragment)
+                lifecycleScope.launch {
+                    val user = withContext(Dispatchers.IO) {
+                        DatabaseHandler.roomDatabase?.getUserDao()
+                            ?.findByLoginAndPassword(login, password)
                     }
+
+                    if (user == null) {
+                        Toast.makeText(context,
+                            "Incorrect login and/or password",
+                            Toast.LENGTH_SHORT)
+                            .show()
+                        return@launch
+                    }
+                    val idUser = user.id
+                    val pref =
+                        activity?.getPreferences(Context.MODE_PRIVATE) ?: return@launch
+                    with(pref.edit()) {
+                        putInt(USER_ID_TAG, idUser)
+                        commit()
+                    }
+                    (requireActivity() as? MainActivity)?.changeBottomNavigationVisibility(true)
+                    findNavController().navigate(R.id.action_loginFragment_to_accountFragment)
+
                 }
             }
         }
