@@ -18,7 +18,7 @@
     <string name="show_time_last_restart">Show time last restart</string>
 
 
-<!--    Name Chanel ID-->
+    <!--    Name Chanel ID-->
     <string name="default_chanel">First chanel</string>
     <string name="start_fs">start FS</string>
     <string name="set_img">Set Notify IMG</string>
@@ -38,4 +38,11 @@
     <string name="save_settings">Save Settings</string>
     <string name="preload_img">preload img</string>
     <string name="img">IMG</string>
+    <string name="nameCity">City:</string>
+    <string name="humidity">Humidity:</string>
+    <string name="pressure">Pressure:</string>
+    <string name="wind_speed">Wind speed:</string>
+    <string name="search_by_gps">search by gps</string>
+    <string name="search_by_city">search by city</string>
+    <string name="search_city">Search city</string>
 </resources>
