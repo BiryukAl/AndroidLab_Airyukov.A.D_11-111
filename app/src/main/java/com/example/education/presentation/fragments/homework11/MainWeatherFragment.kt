@@ -44,12 +44,15 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
     private var fLocationClient: FusedLocationProviderClient? = null
     private var glide: RequestManager? = null
 
+    private val glidePhotoPrefix:String = "https://openweathermap.org/img/wn/"
+    private val glidePhotoSuffix:String = "@2x.png"
+
     private val repositoryWhether = WeatherRepository()
 
     private var weatherResponse: WeatherResponse? = null
         set(value) {
             val urlIcon =
-                "http://openweathermap.org/img/wn/${value?.weather?.first()?.icon ?: "10d"}@2x.png"
+                "$glidePhotoPrefix${value?.weather?.first()?.icon ?: "10d"}$glidePhotoSuffix"
             glide?.load(urlIcon)?.preload()
             field = value
         }
@@ -196,11 +199,7 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
 
         val icon = bottomSheet.findViewById<ImageView>(R.id.weatherIcon)
         val urlIcon =
-            "http://openweathermap.org/img/wn/${
-                weatherResponse
-                    .weather?.first()?.icon ?: "10d"
-            }@2x.png"
-
+            "$glidePhotoPrefix${weatherResponse.weather?.first()?.icon ?: "10d"}$glidePhotoSuffix"
         glide?.load(urlIcon)?.into(icon!!)
         bottomSheet.show()
     }

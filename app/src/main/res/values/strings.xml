@@ -42,4 +42,5 @@
     <string name="search_by_gps">search by gps</string>
     <string name="search_by_city">search by city</string>
     <string name="search_city">Search city</string>
+    <string name="icon_weather">Icon Weather</string>
 </resources>
