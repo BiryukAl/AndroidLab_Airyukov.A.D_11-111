@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
+import android.os.SystemClock.uptimeMillis
 import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
@@ -24,7 +25,12 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.example.education.R
+import com.example.education.data.bd.entity.WeatherCache
+import com.example.education.data.bd.local.DatabaseHandler
+import com.example.education.data.model.Main
+import com.example.education.data.model.Weather
 import com.example.education.data.model.WeatherResponse
+import com.example.education.data.model.Wind
 import com.example.education.data.repository.WeatherRepository
 import com.example.education.databinding.FragmentMainWeatherBinding
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -32,7 +38,9 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
@@ -44,8 +52,8 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
     private var fLocationClient: FusedLocationProviderClient? = null
     private var glide: RequestManager? = null
 
-    private val glidePhotoPrefix:String = "https://openweathermap.org/img/wn/"
-    private val glidePhotoSuffix:String = "@2x.png"
+    private val glidePhotoPrefix: String = "https://openweathermap.org/img/wn/"
+    private val glidePhotoSuffix: String = "@2x.png"
 
     private val repositoryWhether = WeatherRepository()
 
@@ -91,17 +99,67 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
     }
 
     private fun getWeatherForCity(city: String) {
-        lifecycleScope.launch {
-            runCatching {
-                weatherResponse = repositoryWhether.getWeatherByCityName(city)
-            }.onSuccess {
-                showProgressBar(false)
-                visibilityTempMain(true)
-            }.onFailure {
-                showProgressBar(false)
-                Toast.makeText(activity, "Error weather", Toast.LENGTH_SHORT).show()
+        if (city.length < 2) {
+            Toast.makeText(activity, "Incorrect city", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val timeRequest = uptimeMillis()
+
+        visibilityTempMain(false)
+        showProgressBar(true)
+
+        var weatherCache: WeatherCache?
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            weatherCache = DatabaseHandler.roomDatabase?.getWeatherDao()?.findByCityName(city)
+
+            withContext(Dispatchers.Main) {
+                if (weatherCache != null && weatherCache?.timeRequest!! + 60000 > timeRequest) { // 1min == 60000 milliseconds
+
+                    Toast.makeText(activity, "DB", Toast.LENGTH_SHORT).show()
+                    val cacheWeatherResponse = WeatherResponse(null, Main(
+                        weatherCache?.humidity,
+                        weatherCache?.pressure,
+                        weatherCache?.temp
+                    ),
+                        weatherCache?.nameCity,
+                        listOf(Weather(weatherCache?.icon)),
+                        Wind(weatherCache?.windSpeed)
+                    )
+                    weatherResponse = cacheWeatherResponse
+                    showProgressBar(false)
+                    visibilityTempMain(true)
+                } else {
+                    lifecycleScope.launch {
+                        runCatching {
+                            weatherResponse = repositoryWhether.getWeatherByCityName(city)
+                        }.onSuccess {
+                            showProgressBar(false)
+                            visibilityTempMain(true)
+                            withContext(Dispatchers.IO) {
+                                DatabaseHandler.roomDatabase?.getWeatherDao()?.addByCityName(
+                                    WeatherCache(city,
+                                        timeRequest,
+                                        weatherResponse?.main?.temp,
+                                        weatherResponse?.main?.humidity,
+                                        weatherResponse?.main?.pressure,
+                                        weatherResponse?.wind?.speed,
+                                        weatherResponse?.weather?.first()?.icon
+                                    )
+                                )
+                            }
+                            Toast.makeText(activity, "API", Toast.LENGTH_SHORT).show()
+
+                        }.onFailure {
+                            showProgressBar(false)
+                            Toast.makeText(activity, "Error weather API", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             }
         }
+
+
     }
 
     private fun getWeatherForLocation() {
