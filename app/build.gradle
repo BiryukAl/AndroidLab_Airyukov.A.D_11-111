@@ -16,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "WEATHER_KEY", '"c6854b4eccb370e41dfaf2ebdb3e3bcb"')
+        buildConfigField("String", "WEATHER_BASE_URL", '"https://api.openweathermap.org/data/2.5/"')
     }
 
     buildTypes {
@@ -37,6 +40,8 @@ android {
     }
 }
 dependencies {
+
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
     def core_ktx_version = "1.8.0"
     implementation "androidx.core:core-ktx:$core_ktx_version"
 
@@ -49,7 +54,6 @@ dependencies {
     def android_material_version = "1.7.0"
     implementation "com.google.android.material:material:$android_material_version"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-
 
     def fragment_version = "1.5.2"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
@@ -73,6 +77,18 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+    def okhttp_version = "4.10.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    def gson_version = "2.10.1"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
 
     // Testing section
     testImplementation 'junit:junit:4.13.2'
