@@ -241,7 +241,12 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
 
     @SuppressLint("SetTextI18n")
     fun showDetailedWeather(weatherResponse: WeatherResponse) {
-        val bottomSheet = BottomSheetDialog(requireContext())
+        val dialog = DetailedWeatherDialog.getInstance(weatherResponse)
+
+        dialog.show(childFragmentManager, DetailedWeatherDialog.DETAILED_WEATHER_DIALOG_TAG)
+
+
+        /*val bottomSheet = BottomSheetDialog(requireContext())
 
         bottomSheet.setContentView(R.layout.detailed_weather_for_bottom_sheet)
 
@@ -259,7 +264,7 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
         val urlIcon =
             "$glidePhotoPrefix${weatherResponse.weather?.first()?.icon ?: "10d"}$glidePhotoSuffix"
         glide?.load(urlIcon)?.into(icon!!)
-        bottomSheet.show()
+        bottomSheet.show()*/
     }
 
     companion object {
