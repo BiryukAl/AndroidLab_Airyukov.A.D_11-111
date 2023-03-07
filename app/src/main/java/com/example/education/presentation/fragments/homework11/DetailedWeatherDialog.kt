@@ -37,23 +37,23 @@ class DetailedWeatherDialog :
                 arguments?.getString(
                     WEATHER_CITY_NAME_ARG)
             }"
-            temp.text = "${arguments?.getString(WEATHER_MAIN_TEMP_ARG)}"
+            temp.text = "${arguments?.getDouble(WEATHER_MAIN_TEMP_ARG)}"
             humidity.text = "${resources.getString(R.string.humidity)} ${
-                arguments?.getString(
+                arguments?.getInt(
                     WEATHER_MAIN_HUMIDITY_ARG)
             }"
             pressure.text = "${resources.getString(R.string.pressure)} ${
-                arguments?.getString(
+                arguments?.getInt(
                     WEATHER_MAIN_PRESSURE_ARG)
             }"
             windSpeed.text = "${resources.getString(R.string.wind_speed)} ${
-                arguments?.getString(
+                arguments?.getDouble(
                     WEATHER_WIND_SPEED_ARG)
             }"
 
             val urlIcon =
                 "$glidePhotoPrefix${arguments?.getString(WEATHER_ICON_ARG) ?: "10d"}$glidePhotoSuffix"
-            glide?.load(urlIcon)?.into(viewBinding.weatherIcon)
+            glide?.load(urlIcon)?.into(weatherIcon)
         }
     }
 
