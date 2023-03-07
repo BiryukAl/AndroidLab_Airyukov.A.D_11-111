@@ -10,8 +10,6 @@ import android.os.Bundle
 import android.os.SystemClock.uptimeMillis
 import android.provider.Settings
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,8 +20,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import com.example.education.R
 import com.example.education.data.bd.entity.WeatherCache
 import com.example.education.data.bd.local.DatabaseHandler
@@ -37,7 +33,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -50,26 +45,10 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
 
     private lateinit var pLauncher: ActivityResultLauncher<String>
     private var fLocationClient: FusedLocationProviderClient? = null
-    private var glide: RequestManager? = null
-
-    private val glidePhotoPrefix: String = "https://openweathermap.org/img/wn/"
-    private val glidePhotoSuffix: String = "@2x.png"
 
     private val repositoryWhether = WeatherRepository()
 
     private var weatherResponse: WeatherResponse? = null
-        set(value) {
-            val urlIcon =
-                "$glidePhotoPrefix${value?.weather?.first()?.icon ?: "10d"}$glidePhotoSuffix"
-            glide?.load(urlIcon)?.preload()
-            field = value
-        }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        glide = Glide.with(this)
-    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -158,8 +137,6 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
                 }
             }
         }
-
-
     }
 
     private fun getWeatherForLocation() {
@@ -244,27 +221,6 @@ class MainWeatherFragment : Fragment(R.layout.fragment_main_weather) {
         val dialog = DetailedWeatherDialog.getInstance(weatherResponse)
 
         dialog.show(childFragmentManager, DetailedWeatherDialog.DETAILED_WEATHER_DIALOG_TAG)
-
-
-        /*val bottomSheet = BottomSheetDialog(requireContext())
-
-        bottomSheet.setContentView(R.layout.detailed_weather_for_bottom_sheet)
-
-        bottomSheet.findViewById<TextView>(R.id.cityName)?.text =
-            "${resources.getString(R.string.nameCity)} ${weatherResponse.cityName}"
-        bottomSheet.findViewById<TextView>(R.id.temp)?.text = "${weatherResponse.main?.temp}"
-        bottomSheet.findViewById<TextView>(R.id.humidity)?.text =
-            "${resources.getString(R.string.humidity)} ${weatherResponse.main?.humidity}"
-        bottomSheet.findViewById<TextView>(R.id.pressure)?.text =
-            "${resources.getString(R.string.pressure)} ${weatherResponse.main?.pressure}"
-        bottomSheet.findViewById<TextView>(R.id.wind_speed)?.text =
-            "${resources.getString(R.string.wind_speed)} ${weatherResponse.wind?.speed}"
-
-        val icon = bottomSheet.findViewById<ImageView>(R.id.weatherIcon)
-        val urlIcon =
-            "$glidePhotoPrefix${weatherResponse.weather?.first()?.icon ?: "10d"}$glidePhotoSuffix"
-        glide?.load(urlIcon)?.into(icon!!)
-        bottomSheet.show()*/
     }
 
     companion object {
