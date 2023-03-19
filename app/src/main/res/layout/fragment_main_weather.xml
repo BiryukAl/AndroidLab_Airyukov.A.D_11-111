@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    tools:context=".presentation.screen_new.homework11.MainWeatherScreen">
+    tools:context=".presentation.screen_new.homework12.MainWeatherScreen">
 
 
     <androidx.appcompat.widget.AppCompatEditText

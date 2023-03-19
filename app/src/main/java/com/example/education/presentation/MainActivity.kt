@@ -7,7 +7,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
 import com.example.education.data.bd.DatabaseHandler
 import com.example.education.databinding.ActivityMainBinding
-import com.example.education.presentation.screen_new.homework11.MainWeatherScreen
+import com.example.education.presentation.screen_new.homework12.MainWeatherScreen
 
 
 class MainActivity : AppCompatActivity() {
