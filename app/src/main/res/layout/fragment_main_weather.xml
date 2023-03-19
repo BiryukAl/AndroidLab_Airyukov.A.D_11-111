@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    tools:context=".presentation.fragments.homework11.MainWeatherFragment">
+    tools:context=".presentation.screen_new.homework11.MainWeatherScreen">
 
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -66,7 +66,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/nameCity"
+        android:text="@string/nameCity_pattern"
         android:textAlignment="center"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"

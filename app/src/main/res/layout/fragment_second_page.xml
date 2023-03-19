@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    tools:context=".presentation.fragments.homework1.secondPage.SecondPageFragment">
+    tools:context=".presentation.fragments_old.homework1.secondPage.SecondPageFragment">
 
 
     <TextView

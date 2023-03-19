@@ -35,10 +35,11 @@
     <string name="save_settings">Save Settings</string>
     <string name="preload_img">preload img</string>
     <string name="img">IMG</string>
-    <string name="nameCity">City:</string>
-    <string name="humidity">Humidity:</string>
-    <string name="pressure">Pressure:</string>
-    <string name="wind_speed">Wind speed:</string>
+    <string name="nameCity_pattern">City: %1$s</string>
+    <string name="temp_pattern">%1$s \'</string>
+    <string name="humidity_pattern">Humidity: %1$s</string>
+    <string name="pressure_pattern">Pressure: %1$s</string>
+    <string name="wind_speed_pattern">Wind speed: %1$s</string>
     <string name="search_by_gps">search by gps</string>
     <string name="search_by_city">search by city</string>
     <string name="search_city">Search city</string>
