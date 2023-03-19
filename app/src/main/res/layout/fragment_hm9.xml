@@ -5,7 +5,7 @@
     android:id="@+id/item_hm9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.homework9.Hm9Fragment">
+    tools:context=".presentation.fragments_old.homework9.Hm9Fragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"

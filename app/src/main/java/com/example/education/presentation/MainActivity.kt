@@ -1,19 +1,13 @@
 package com.example.education.presentation
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.education.R
-import com.example.education.data.bd.local.DatabaseHandler
+import com.example.education.data.bd.DatabaseHandler
 import com.example.education.databinding.ActivityMainBinding
-import com.example.education.presentation.fragments.homework11.MainWeatherFragment
-import com.example.education.presentation.fragments.homework6.CreateNotifyFragment
-import com.example.education.presentation.fragments.homework8.CreateForegroundServiceFragment
-import com.example.education.presentation.fragments.homework9.Hm9Fragment
+import com.example.education.presentation.screen_new.homework12.MainWeatherScreen
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(
                 fragmentsContainerId,
-                MainWeatherFragment.getInstance(),
-                MainWeatherFragment.MAIN_WEATHER_FRAGMENT_TAG
+                MainWeatherScreen.getInstance(),
+                MainWeatherScreen.MAIN_WEATHER_SCREEN_TAG
             )
             .commit()
     }
