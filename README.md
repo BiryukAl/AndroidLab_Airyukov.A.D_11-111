@@ -1,8 +1,25 @@
-# AndroidLab_Biryukov.A.D_11-111
-## Group 2 
+# Beginer Practical Course Android from KPFU/ITIS
 
-## Бирюков Александр Дмитриевич (kpfu/itis/11-111) = 38,5 point
+## Info
+Group 2 - Бирюков Александр Дмитриевич (kpfu/itis/11-111)
 
+
+## 4 Semestr
+
+### Regulations
+
+* HW11 - Retrofit	=  5 (+4)
+* HW12 - Clean + MVVM	"Основная часть  = 3 (+ 4,5)
+
+### Self-check - Home Works
+
+#### Main:
+* Home Work 11   - Complite, points 100% + extra points
+* Home Work 12   - Complite, points 100% 
+
+
+
+## 3 Semestr = 38,5 point
 
 ### Regulations
 
@@ -22,9 +39,6 @@ All: 79
 
 ### Self-check - Home Works
 
-#### Additional:
-Staggered Layout Manager - In progress..)
-
 #### Main:
 * Home Work 1   - Complite, points 50%
 * Home Work 1_1 - Complite
@@ -36,4 +50,7 @@ Staggered Layout Manager - In progress..)
 * Home Work 7   - In progress...
 * Home Work 8   - Complite, points 50%
 * Home Work 9   - Complite, points 100%
-* Home Work 10  - Complite, points 80%
+* Home Work 10  - Complite, points 80% 
+
+#### Additional:
+Staggered Layout Manager - In progress..)
